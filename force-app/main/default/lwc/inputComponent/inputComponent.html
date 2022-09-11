@@ -1,0 +1,13 @@
+<template>
+    <div style="margin:20px">
+    <lightning-card >
+        <p>Powered By : {parentName}</p>
+        <p>Adding {num1}<span> + {num2}</span></p>
+        <lightning-input value={num1}  name ="num1" label ="First Number" onchange={handleChange}></lightning-input>
+        <lightning-input value={num2}  name ="num2" label ="Second Number" onchange={handleChange}></lightning-input>
+        <br>
+        <lightning-button label = "Add" onclick={handleAdd}></lightning-button>
+    <p slot="footer" >{dispmsg}</p>
+    </lightning-card> 
+    </div>
+</template>

@@ -1,0 +1,29 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <p>Account List</p>
+    <div style="height: 300px;" >
+    <!-- <div style="height: 300px;" for:each={dispData} for:item="acc" key={acc.Id}> -->
+        <!-- <a href="#" onclick={handleClick} data-acc-id ={acc.Id}></a> -->
+    <lightning-datatable  
+    key-field="Id" 
+    data = {dispData} 
+    columns = {column}
+    hide-checkbox-column
+    onrowaction={handleClick}   >  
+    </lightning-datatable> 
+    </div>
+
+    <!-- looping over data
+    <template for:each = {dispData} for:item="account">
+        <div key={account.Id}>
+        <p >{account.Name} <span> | {account.Phone} | </span></p>
+        </div>
+    </template> -->
+
+    <!-- on click of account display related contacts -->
+
+<c-child-contact-records acc-id = {retrievacc}></c-child-contact-records>
+<lightning-button label="Imperative call" onclick={handleImpertaive}></lightning-button>
+
+
+</template>

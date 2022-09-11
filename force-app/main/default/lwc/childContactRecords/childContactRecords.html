@@ -1,0 +1,10 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <p style="align-items: center;font-weight:bold; color:red " >Related Contact List</p>
+    <lightning-datatable if:true={contact.data}
+    key-field="Id"
+    data = {contact.data}
+    columns = {contactColumns}
+    hide-checkbox-column>
+    </lightning-datatable>
+</template>
