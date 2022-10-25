@@ -1,5 +1,6 @@
 import { LightningElement, wire} from 'lwc'
 import searchLeads from '@salesforce/apex/LeadSearchController.searchLeads'
+import {NavigationMixin} from 'lightning/navigation'
 
 const DELAY = 4000;
 const COLS = [
@@ -29,7 +30,7 @@ const COLS = [
         }
     }  
 ]
-export default class LeadList extends LightningElement {
+export default class LeadList extends NavigationMixin( LightningElement ) {
     leads=[]
     searchTerm
     cols = COLS
@@ -37,12 +38,15 @@ export default class LeadList extends LightningElement {
 
     handleSearchChange(event){
         //dispatching event to parent nestedLayout
-        this.searchTerm = event.target.value;
-        const searchEvent = new CustomEvent('newsearch',{detail:this.searchTerm})
-        window.clearTimeout(this.delayTimeout)
-        this.delayTimeout = setTimeout(()=>{
-            this.dispatchEvent(searchEvent)
-        },DELAY)
+        if(this.leads){
+            this.searchTerm = event.target.value;
+            const searchEvent = new CustomEvent('newsearch',{detail:this.searchTerm})
+            window.clearTimeout(this.delayTimeout)
+            // eslint-disable-next-line @lwc/lwc/no-async-operation
+            this.delayTimeout = setTimeout(()=>{
+                this.dispatchEvent(searchEvent)
+            },DELAY)
+        }
         
     }
 
@@ -52,12 +56,25 @@ export default class LeadList extends LightningElement {
     searchMethod({error,data}){
         if(data){
             this.leads = data;
-            console.log('%%'+ leads)
+            const selectedEvent = new CustomEvent('searchcomplete', {detail: this.searchTerm});
+            this.dispatchEvent(selectedEvent);
             this.error = undefined;
         }else if(error){
             this.leads = undefined;
             this.error = error;
         }
+    }
+
+    handleRowAction(event){
+        const row = event.detail.row;
+        this.record = row;
+        this[NavigationMixin.Navigate]({
+            type: 'standard__recordPage',
+            attributes: {
+                recordId: row.Id,
+                actionName: 'view'
+            },
+        });
     }
   /*  leads = [
         {
