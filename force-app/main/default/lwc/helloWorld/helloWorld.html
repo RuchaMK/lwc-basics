@@ -1,6 +1,21 @@
 <template>
-    <lightning-card title="Hello">
-        <p class="slds-var-p-horizontal_small"> Hello Salesforce !!</p>
-        <p slot="footer">Hello LWC!!</p>
-    </lightning-card>   
+  <lightning-card title="Hello">
+    <div class="slds-var-m-around_xx-small">
+      <lightning-input
+        type="text"
+        label="Enter FristName"
+        onkeyup={handleName}
+      ></lightning-input>
+      <p>Welcome {name}</p>
+      <p>
+        EmpId: {emp.empNo} Name: {emp.empFirstName} LastName: {emp.empLastName}
+        Details: {emp.details}
+      </p>
+      <lightning-input
+        type="text"
+        label="Enter LastName"
+        onkeyup={handleLastName}
+      ></lightning-input>
+    </div>
+  </lightning-card>
 </template>
