@@ -16,6 +16,19 @@
         label="Enter LastName"
         onkeyup={handleLastName}
       ></lightning-input>
+      <div class="slds-var-m-top_small">
+        <lightning-button
+          variant="brand-outline"
+          label="See All"
+          onclick={handleClick}
+          class="slds-m-left_x-small"
+        ></lightning-button>
+        <template if:true={showLwc}>
+          <p>Getter in LWC</p>
+          <p>EmpPin: {empPin}</p>
+          <p>Division: {division}</p>
+        </template>
+      </div>
     </div>
   </lightning-card>
 </template>

@@ -6,12 +6,13 @@ js to HTML by default
 HTML to js using methods */
 export default class HelloWorld extends LightningElement {
   name = "John";
+  showLwc = false;
   @track emp = {
     empNo: 101,
     active: "yes",
     empFirstName: "",
     empLastName: "",
-    details: ["101 ", this.empLastName]
+    details: ["201008 ", this.empLastName]
   };
   handleName(event) {
     this.name = event.target.value;
@@ -21,5 +22,21 @@ export default class HelloWorld extends LightningElement {
   handleLastName(event) {
     this.emp.empLastName = event.target.value;
     this.emp.details[1] = event.target.value;
+  }
+  //getter in LWC
+  get empPin() {
+    return this.emp.details[0];
+  }
+
+  get division() {
+    return this.emp.details[0] / 2;
+  }
+  //conditional rendering
+  handleClick() {
+    if (this.showLwc === false) {
+      this.showLwc = true;
+    } else {
+      this.showLwc = false;
+    }
   }
 }
