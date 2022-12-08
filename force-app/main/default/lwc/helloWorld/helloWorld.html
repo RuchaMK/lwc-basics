@@ -21,12 +21,29 @@
           variant="brand-outline"
           label="See All"
           onclick={handleClick}
-          class="slds-m-left_x-small"
+          class="slds-var-m-left_x-small"
         ></lightning-button>
         <template if:true={showLwc}>
-          <p>Getter in LWC</p>
-          <p>EmpPin: {empPin}</p>
-          <p>Division: {division}</p>
+          <lightning-card title="for:each">
+            <template for:each={employee} for:item="emp" for:index="index">
+              <p key={emp.Id} class="slds-var-p-horizontal_small">
+                {index}: {emp}
+              </p>
+            </template>
+          </lightning-card>
+          <lightning-card title="iterator">
+            <template if:true={showLwc} iterator:emp={employee}>
+              <div key={emp.Id}>
+                <template if:true={emp.first}>
+                  <b class="slds-var-p-horizontal_small">{emp.index} First</b>
+                </template>
+                <template if:true={emp.last}>
+                  <b class="slds-var-p-horizontal_small">{emp.index} Last</b>
+                </template>
+                <span class="slds-var-p-horizontal_small">{emp.value}</span>
+              </div>
+            </template>
+          </lightning-card>
         </template>
       </div>
     </div>

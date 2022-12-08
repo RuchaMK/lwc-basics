@@ -39,4 +39,7 @@ export default class HelloWorld extends LightningElement {
       this.showLwc = false;
     }
   }
+
+  //employee array
+  employee = ["Jen", "Ben", "Lyla", "Seema"];
 }
