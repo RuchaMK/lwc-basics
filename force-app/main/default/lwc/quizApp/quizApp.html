@@ -1,0 +1,45 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+  <lightning-card>
+    <p class="slds-var-p-horizontal_small">
+      <template for:each={Questions} for:item="q">
+        <div class="slds-var-p-around_small" key={Questions.Q}>
+          <p>{q.Q}: {q.Desc}</p>
+          <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+              <span
+                ><input
+                  type="radio"
+                  name={q.Q}
+                  value="a"
+                  onchange={selectedOption}
+                />{q.answers.a}</span
+              >
+            </div>
+            <div class="slds-col">
+              <span
+                ><input
+                  type="radio"
+                  name={q.Q}
+                  value="b"
+                  onchange={selectedOption}
+                />{q.answers.b}
+              </span>
+            </div>
+            <div class="slds-col">
+              <span>
+                <input
+                  type="radio"
+                  name={q.Q}
+                  value="c"
+                  onchange={selectedOption}
+                />{q.answers.c}</span
+              >
+            </div>
+          </div>
+        </div>
+      </template>
+    </p>
+  </lightning-card>
+</template>
