@@ -1,6 +1,8 @@
 import { LightningElement } from "lwc";
 
 export default class QuizApp extends LightningElement {
+  correctAnswers = 0;
+  isSubmitted = false;
   Questions = [
     {
       Q: "Q1",
@@ -28,14 +30,56 @@ export default class QuizApp extends LightningElement {
       answers: {
         a: "Software Of Query Language",
         b: "Salesforce Object Query Language",
-        c: "SSalesforce Object Queue Language"
+        c: "Salesforce Object Queue Language"
       },
       correctAns: "b"
     }
   ];
 
-  selectedOption(event) {
-    console.log("Name", event.target.name);
-    console.log("Value", event.target.value);
+  //selectedOption = {"Q1":"c","Q2":"b","Q3":"a"}
+  selectedOption = {};
+
+  captureOption(event) {
+    var name = event.target.name;
+    var value = event.target.value;
+    console.log("Name", name);
+    console.log("Value", value);
+    //addding to existing object using spread operator
+    this.selectedOption = { ...this.selectedOption, [name]: value };
+  }
+
+  get disabled() {
+    return !(Object.keys(this.selectedOption).length === this.Questions.length);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log("selectedOption", JSON.stringify(this.selectedOption));
+    //let correct = this.Questions.filter(item => console.log('Slected ans', this.selectedOption[item.Q],'CorrectAns ', item.correctAns))//this.selectedOption[item.Q] === item.correctAns)
+    let correct = this.Questions.filter(
+      (item) => this.selectedOption[item.Q] === item.correctAns
+    ); //this.selectedOption[item.Q] === item.correctAns)
+    this.correctAnswers = correct.length;
+    this.isSubmitted = true; //to show results
+    console.log(
+      correct,
+      "CorrectAnswers ",
+      this.correctAnswers,
+      this.isSubmitted
+    );
+  }
+
+  get colorScheme() {
+    return `${
+      this.correctAnswers > 1
+        ? "slds-text-color_success"
+        : "slds-text-color_error"
+    }`;
+  }
+
+  handleReset() {
+    this.selectedOption = {};
+    this.correctAnswers = 0;
+    this.isSubmitted = false;
   }
 }

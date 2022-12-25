@@ -1,31 +1,31 @@
 <!-- sldsValidatorIgnore -->
-<!-- sldsValidatorIgnore -->
+
 <template>
   <lightning-card>
-    <p class="slds-var-p-horizontal_small">
+    <form>
       <template for:each={Questions} for:item="q">
         <div class="slds-var-p-around_small" key={Questions.Q}>
           <p>{q.Q}: {q.Desc}</p>
           <div class="slds-grid slds-gutters">
             <div class="slds-col">
-              <span
-                ><input
+              <span>
+                <input
                   type="radio"
                   name={q.Q}
                   value="a"
-                  onchange={selectedOption}
+                  onchange={captureOption}
                 />{q.answers.a}</span
               >
             </div>
             <div class="slds-col">
-              <span
-                ><input
+              <span>
+                <input
                   type="radio"
                   name={q.Q}
                   value="b"
-                  onchange={selectedOption}
-                />{q.answers.b}
-              </span>
+                  onchange={captureOption}
+                />{q.answers.b}</span
+              >
             </div>
             <div class="slds-col">
               <span>
@@ -33,13 +33,35 @@
                   type="radio"
                   name={q.Q}
                   value="c"
-                  onchange={selectedOption}
+                  onchange={captureOption}
                 />{q.answers.c}</span
               >
             </div>
           </div>
         </div>
       </template>
-    </p>
+      <lightning-button
+        variant="brand"
+        label="Submit"
+        type="submit"
+        disabled={disabled}
+        title="Submit"
+        onclick={handleSubmit}
+        class="slds-m-left_x-small"
+      ></lightning-button>
+      <lightning-button
+        variant="brand"
+        label="Reset"
+        type="reset"
+        title="Reset"
+        onclick={handleReset}
+        class="slds-m-left_x-small"
+      ></lightning-button>
+    </form>
+    <template if:true={isSubmitted}>
+      <p class={colorScheme}>
+        You have scored {correctAnswers} out of {Questions.length}
+      </p>
+    </template>
   </lightning-card>
 </template>
