@@ -5,5 +5,15 @@
     <p style="margin:20px" >Output: {total}</p>
     <c-input-component parent-name = {myname} onadd = {performAdd} ></c-input-component>
    </lightning-card>
+   <lightning-card>
+      <h6>Query Selector Example</h6>
+      <lightning-button label="fetchDetails" onclick={fetchDetails}></lightning-button>
+ 
+      <template for:each = {arr} for:item="item">
+      <p key={item}>{item}</p>
+      </template>
+      <div> {disp}</div>
+   </lightning-card>
    </div>
+   
 </template>

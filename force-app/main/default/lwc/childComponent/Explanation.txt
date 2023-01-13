@@ -6,3 +6,10 @@
 4.Create parentComponent, js-meta.xml
 5. Declare lightning card
 6. Use button and @api functionality to change var itenName in child and function
+
+WelcomeComponent
+1. sum of 2 numbers using parse and changing child message using query slector
+2. 3 query querySelector functions
+   a) Simple query selector using tag name
+   b) fetching each element of array and consoling in js
+   c) Addng html element as a child tag
