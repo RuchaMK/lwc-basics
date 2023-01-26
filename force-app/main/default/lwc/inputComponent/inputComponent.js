@@ -5,6 +5,7 @@ export default class InputComponent extends LightningElement {
     @api num1 = 0
     @api num2 = 0  
     @api dispmsg = "Enter values"
+    sum = 0
    
     handleChange(event){    
         if(event.target.name === 'num1'){
@@ -19,7 +20,7 @@ export default class InputComponent extends LightningElement {
        // this.total = parseInt(this.num1) + parseInt(this.num2)        
     }
     
-    handleAdd(event){
+    handleAdd(){
         
         /*this.dispatchEvent(new CustomEvent('anyEventName')) */
         /*let eventobj = new CustomEvent("add",{detail:})*/
@@ -33,7 +34,12 @@ export default class InputComponent extends LightningElement {
         this.dispatchEvent(eventobj)
     }
 
-    @api changeMsg(disp){
-        this.dispmsg = disp;
+    @api changeMsg(disp,sum){
+        this.dispmsg = disp
+        this.sum = sum
+    }
+
+    get percentage(){
+        return `width:${this.sum}%`
     }
 }

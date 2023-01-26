@@ -4,16 +4,25 @@
     <p style="margin:20px" >{welcomeMsg}</p>
     <p style="margin:20px" >Output: {total}</p>
     <c-input-component parent-name = {myname} onadd = {performAdd} ></c-input-component>
+   
    </lightning-card>
    <lightning-card>
       <h6>Query Selector Example</h6>
       <lightning-button label="fetchDetails" onclick={fetchDetails}></lightning-button>
  
       <template for:each = {arr} for:item="item">
-      <p key={item}>{item}</p>
+      <p class = 'arr' key={item}>{item}</p>
       </template>
       <div> {disp}</div>
+      <div class="newElem" lwc:dom="manual"> </div> 
    </lightning-card>
-   </div>
    
+   
+   <lightning-card>
+      <lightning-input label="Enter Percentage" type="number" onchange={dispPercentage}></lightning-input>
+      <div style={percentage} class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+        {percent}%
+      </div>
+   </lightning-card>
+</div>
 </template>

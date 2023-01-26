@@ -7,7 +7,10 @@
         <lightning-input value={num2}  name ="num2" label ="Second Number" onchange={handleChange}></lightning-input>
         <br>
         <lightning-button label = "Add" onclick={handleAdd}></lightning-button>
-    <p slot="footer" >{dispmsg}</p>
+    
+    <div style={percentage} class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+        {dispmsg}
+      </div>
     </lightning-card> 
     </div>
 </template>
