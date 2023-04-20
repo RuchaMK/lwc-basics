@@ -1,0 +1,28 @@
+<template>
+    <lightning-card>
+        <div class="slds-var-m-around_medium">
+        <h2>Parent Component</h2>
+        </div>
+    </lightning-card>
+
+    <div class="slds-var-m-top_medium">
+    <template lwc:if={isChildVisible}>
+        <lightning-button label="Remove Child Component" onclick={handleChild}></lightning-button>    
+    </template>
+    <template lwc:else>
+        <lightning-button label="Show Child Component" onclick={handleChild}></lightning-button>
+    </template>
+    </div>
+
+    <template if:true={isChildVisible}>
+        <c-child-hook></c-child-hook>
+    </template>
+    
+   
+    <div class="slds-var-m-top_small">
+    <lightning-button class="slds-var-m-right_large " variant="brand" label="SignIn" title="Sign_In" onclick={handleUser}></lightning-button>
+    <lightning-button  variant="brand" label="SignUp" title="Sign_Up" onclick={handleUser}></lightning-button>
+    </div>
+   
+
+</template>

@@ -13,3 +13,11 @@ WelcomeComponent
    a) Simple query selector using tag name
    b) fetching each element of array and consoling in js
    c) Addng html element as a child tag
+3. Adding Dynamic css via percentage tracker
+4. lightning alert,confirm,prompt modules as based on https://trailhead.salesforce.com/content/learn/modules/platform-developer-i-certification-maintenance-winter-23/maintain-your-platform-developer-i-certification-for-winter-23
+5. Lifecycle hook
+    parentHook, childHook
+6. pubsub
+    pubsub.js, publisher, NewSubscriber
+7. pubsub using LightningMessageChannel
+    myChannel, newPublisher, newSubscriber

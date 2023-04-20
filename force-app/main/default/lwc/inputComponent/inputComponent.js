@@ -2,9 +2,9 @@ import { LightningElement, api } from 'lwc';
 
 export default class InputComponent extends LightningElement {
     @api parentName = ""
-    @api num1 = 0
-    @api num2 = 0  
-    @api dispmsg = "Enter values"
+     num1 = 0
+     num2 = 0  
+     dispmsg = "Enter values"
     sum = 0
    
     handleChange(event){    
@@ -39,7 +39,5 @@ export default class InputComponent extends LightningElement {
         this.sum = sum
     }
 
-    get percentage(){
-        return `width:${this.sum}%`
-    }
+    
 }

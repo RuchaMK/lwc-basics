@@ -1,4 +1,8 @@
 import { LightningElement } from 'lwc';
+import LightningAlert from 'lightning/alert'
+import LightningConfirm from 'lightning/confirm'
+import LightningPrompt from 'lightning/prompt'
+
 
 export default class WelcomeComponent extends LightningElement {
     welcomeMsg =" Welcome to LWC Examples !! I am property !!"
@@ -36,7 +40,8 @@ export default class WelcomeComponent extends LightningElement {
         })
 
         let newElem = this.template.querySelector('.newElem')
-        newElem.innerHTML = '<p>Adding tag</p>'
+        newElem.appendChild('<p>Adding tag</p>') 
+        
 
     }
     dispPercentage(event){
@@ -47,6 +52,28 @@ export default class WelcomeComponent extends LightningElement {
         return `width:${this.percent}%`
     }
     
-   
+    async newHandleAlert(){
+        await LightningAlert.open({
+            message:"This is new Lightning Alert to avoid native window*",
+            theme: 'error',
+            label:'Error!'
+        });
+    }
 
+    async newHandleConfirm(){
+       const res = await LightningConfirm.open({
+            message:"This is new Lightning Confirm to avoid native window*",
+            variant: 'headerless',
+            label:'Confirm!!'
+        }).then(result=>console.log('confirm',result))
+        console.log(res)
+    }
+   
+    async newHandlePrompt(){
+        await LightningPrompt.open({
+            message:"This is new Lightning Prompt to avoid native window*",
+            label: 'Please Respond',
+            defaultValue: 'ok'
+        }).then(result=>console.log('prompt',result))
+    }
 }

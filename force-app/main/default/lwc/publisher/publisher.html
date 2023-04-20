@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Publisher Subscriber Model">
+        <lightning-input class="slds-var-p-around_medium" label="Send Text to Subscriber"
+        value={txt} onchange={handleTxtChange}></lightning-input>
+        <br>
+        <lightning-button class="slds-var-p-around_medium" label="Send" variant="brand"
+        onclick={publishEvent}></lightning-button>
+    </lightning-card>
+</template>

@@ -3,4 +3,17 @@
        <!-- {itemName} -->
         {clickButton}
     </lightning-card>
+    <lightning-carousel>
+        <template for:each={slider} for:item=s for:index=index>
+        <lightning-carousel-image
+            key={slider.src}
+            src={slider.src}
+            header={slider.header}
+            description={slider.description}
+            alternative-text={slider.alternativeText}
+            href={slider.href}>
+        </lightning-carousel-image>
+        </template>
+   
+    </lightning-carousel>
 </template>

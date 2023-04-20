@@ -6,11 +6,12 @@
         <lightning-input value={num1}  name ="num1" label ="First Number" onchange={handleChange}></lightning-input>
         <lightning-input value={num2}  name ="num2" label ="Second Number" onchange={handleChange}></lightning-input>
         <br>
-        <lightning-button label = "Add" onclick={handleAdd}></lightning-button>
-    
-    <div style={percentage} class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+<br>
+    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
         {dispmsg}
       </div>
+<br><br>
+      <lightning-button label = "Add" onclick={handleAdd}></lightning-button>
     </lightning-card> 
     </div>
 </template>
