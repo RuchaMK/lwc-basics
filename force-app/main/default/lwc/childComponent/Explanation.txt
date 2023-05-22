@@ -2,10 +2,10 @@
     Expose the component = true
     set target as RecordPage
 2.In childComponent.js we have declared a variable itemName.
-3.In  childComponent.html declare a lightning-card and call the var itemName
+3.In  childComponent.html declare a lightning-card and call the var itemName,num,slider-carousel
 4.Create parentComponent, js-meta.xml
 5. Declare lightning card
-6. Use button and @api functionality to change var itenName in child and function
+6. Use button and @api functionality to change Primtive,Non Primitive array of objects using api, action
 
 WelcomeComponent
 1. sum of 2 numbers using parse and changing child message using query slector

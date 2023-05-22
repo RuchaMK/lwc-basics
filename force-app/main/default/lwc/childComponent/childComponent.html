@@ -1,19 +1,41 @@
 <template>
     <lightning-card title="Child Component">
-       <!-- {itemName} -->
+        <p>{itemName}</p>
+        <p>Num:{num}</p>
+        <p>Boolean:{booleanValue}</p><br>
         {clickButton}
     </lightning-card>
-    <lightning-carousel>
+ <div class="slds-var-m-around_medium">
+    <lightning-carousel disable-auto-scroll>
         <template for:each={slider} for:item=s for:index=index>
         <lightning-carousel-image
-            key={slider.src}
-            src={slider.src}
-            header={slider.header}
-            description={slider.description}
-            alternative-text={slider.alternativeText}
-            href={slider.href}>
+            key={s.header}
+            src={s.src}
+            header={s.header}
+            description={s.description}
+            alternative-text={s.alternativeText}
+            style="height:100%;width:100%; object-fit:contain">
         </lightning-carousel-image>
         </template>
-   
     </lightning-carousel>
+</div>
+    <template if:true={scheme}>
+        <p class="slds-text-align_center">
+            Id:{scheme.Id}
+            You Won Voucher of:<strong>{scheme.voucher}</strong>
+        </p>
+    </template>
+
+    <lightning-card title="Slot">
+        <p>Parent...Do You have a Markup? <slot></slot></p> <!--unamed slot-->
+        <p>What is your name? <slot name="first"></slot></p><!--named slot-->
+        <p>What is your type?<slot name="second"> </slot></p>
+        <footer class="slds-card__footer slds-hide">
+            <slot name="footer" onslotchange={handleFooterChange}></slot>
+        </footer>
+    </lightning-card>
+
+    
+
+
 </template>

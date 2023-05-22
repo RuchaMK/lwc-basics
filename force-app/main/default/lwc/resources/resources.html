@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Static Image">
+        <img src={sampleImage} alt="Sample Image Photo" height="100px"/>
+        <p>11 years ago from now {yearsAgo11}</p>
+        <p class="animate__animated animate__flash animate__delay-3s">Animate Me !!!</p>
+        <a href={file} download>Download</a>
+        <p dir = {dir}>{formattedNumber}</p>
+        <p>{LABELS.label1}</p>
+        <p>{LABELS.label2}</p>
+        <template if:true = {hasViewAllDataAvailable}>
+            Hurray i have User permission
+        </template>
+        <template if:false = {hasViewAllDataAvailable}>
+            No User permission
+        </template><br/>
+        <template if:true = {hasCustomPermission}>
+            Hurray i have Custom permission
+        </template>
+        <template if:false = {hasCustomPermission}>
+            No Custom permission
+        </template>
+        <p>Form Factor {formfactor}</p>
+        <p>User: {userId}</p>
+        <p>Is Guest? {isGuest}</p>
+    </lightning-card> 
+</template>

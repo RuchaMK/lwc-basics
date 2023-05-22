@@ -1,10 +1,11 @@
-import { LightningElement, track } from "lwc";
+import { LightningElement, track, api } from "lwc";
 /*LP: name, age only present in a class are called local.
 name //undefined
 DB:  1 way Synchronization b/w Controller and template(HTML)
 js to HTML by default
 HTML to js using methods */
 export default class HelloWorld extends LightningElement {
+  @api auraData;
   name = "John";
   showLwc = false;
   @track emp = {
@@ -42,4 +43,13 @@ export default class HelloWorld extends LightningElement {
 
   //employee array
   employee = ["Jen", "Ben", "Lyla", "Seema"];
+
+  sendData(){
+    const event =  new CustomEvent('sendData',{
+      detail:{
+        "msg":"Hello from from LWC"
+      }
+     })
+     this.dispatchEvent(event)
+  }
 }

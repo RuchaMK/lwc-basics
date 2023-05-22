@@ -1,0 +1,13 @@
+h2{
+  text-align: center;
+  text-transform: uppercase;
+  color: #4CAF50;
+}
+c-css-child{
+    text-align: center;
+    color: blue
+}
+h1{
+    color:black;
+    font-weight:bold;
+}

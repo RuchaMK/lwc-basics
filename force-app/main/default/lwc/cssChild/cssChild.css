@@ -1,0 +1,16 @@
+:host{
+    text-transform: uppercase
+}
+:host(.red){
+    text-align: center;
+    color: red;
+}
+p{
+    color:cyan;
+}
+/*not working slot{
+    color:black;
+}
+h1{
+    color:black;
+}*/

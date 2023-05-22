@@ -1,7 +1,24 @@
 <template>
     <lightning-card title="Parent Component">
   <!-- <c-child-component item-name="Parent Salesforce item" ></c-child-component>-->
-  <c-child-component slider={carouselObj}></c-child-component>
+  <div>
+    <c-child-component 
+    detail={luckyDraw} item-name="Parent to Child Using API" num=90 boolean-value=true slider={carouselObj}>
+    <p>Yes I am sending this markup</p>
+    <p class="slds-theme_success" slot="first">My name is Parent</p>
+    <p class="slds-theme_error" slot="second">LWC</p>
+    <p slot="footer">Footer data is passed</p>
+    </c-child-component>
+  </div>
+  <div>
+    <c-child-component>
+    <p>No Footer</p>
+    </c-child-component>
+  </div>
+  
     </lightning-card>
+    <p>Parent to Child by action on Parent and Invoking Method</p>
     <lightning-button label="Click" onclick={handleClick}></lightning-button>
+
+    
 </template>

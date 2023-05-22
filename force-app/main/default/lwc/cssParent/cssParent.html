@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Parent Component">
+        <h1>CSS Behaviour in Parent Child Component</h1>
+        <h2>1. Parent CSS can't reach into a child component</h2>
+        <p>2. A parent component CSS can style a host element()</p>
+        <p>4. You can style an element passed into the slot from the PARENT comp only</p>
+    </lightning-card> 
+    <c-css-child>
+        <h1>Slot Data</h1>
+    </c-css-child><!--Host for Child-->
+    <c-css-child class="red"></c-css-child>
+</template>
