@@ -1,6 +1,11 @@
 ({
+    onload: function(component){
+        var pageRef = component.get("v.pageReference")
+        var id = pageRef.state.c__id
+        component.set("v.id",id)
+    },
     //child lwc
-    receiveData : function(component, event) {
+    receiveData: function(component, event) {
         var msg = event.getParam('msg')
         component.set("v.message",msg)
     },

@@ -1,9 +1,14 @@
-<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+<aura:component implements="flexipage:availableForAllPageTypes, lightning:isUrlAddressable" access="global">
 <aura:attribute name="message" type="String"></aura:attribute>    
 <aura:attribute name="namepublishValue" type="String"/>
 <aura:attribute name="msgpublishValue" type="String"/>
 <aura:attribute name="nameReceived" type="String"/>  
 <aura:attribute name="messageReceived" type="String"/>    
+<aura:attribute name="id" type="String"/>
+<aura:handler name="init" value="{!this}" action="{!c.onload}"/>
+<div class="slds-card">
+    <div>Coming from LWC Navigation {!v.id}</div>
+</div>
 <!--Child LWC-->
 <lightning:card title = "AURA Coexistence">
         <c:helloWorld onsendData="{!c.receiveData}" auraData = "Hello from Aura"></c:helloWorld>

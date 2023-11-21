@@ -1,0 +1,39 @@
+<template>
+   <lightning-card title="Wire with function on getRecord">
+    Welcome User: {userId}
+    <template if:true = {userDetails}>
+       <div>Name: {userDetails.Name.value}</div> 
+       <div>Email: {userDetails.Email.value}</div> 
+    </template>       
+   </lightning-card>
+
+   <lightning-card title="Wire with Property on getRecord">
+    <template if:true= {userDetailsProperty.data}>
+        <div>Name: {userDetailsProperty.data.fields.Name.value}</div> 
+        <div>Email: {userDetailsProperty.data.fields.Email.value}</div> 
+    </template>
+   </lightning-card>
+
+   <lightning-card title="Wire with function on getObjectInfo">
+         <div>Default Record Type: {defaultRecordTypeId}</div>          
+   </lightning-card>
+
+   <lightning-card title="Wire with getObjectInfo">
+         <template if:true={objectInfoProperty.data}>
+          <div>Default Record Type: {objectInfoProperty.data.defaultRecordTypeId}</div> 
+          <div>Api Name: {objectInfoProperty.data.apiName}</div> 
+         </template>
+   </lightning-card>
+
+   <lightning-card title="Wire with getObjectInfos">
+     
+      <template if:true={objectInfos}>
+      <template for:each = {objectInfos.results} for:item="obj">
+         <div key={obj.result.apiName}>
+            <div>Object Api Name:{obj.result.apiName}</div>
+            <div>defaultRecordTypeId:{obj.result.defaultRecordTypeId}</div>
+         </div>
+      </template>
+      </template>
+</lightning-card>
+</template>

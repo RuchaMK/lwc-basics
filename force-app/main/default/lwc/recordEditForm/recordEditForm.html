@@ -1,0 +1,17 @@
+<template>
+<lightning-card title="lightning record edit form">
+    <lightning-record-edit-form
+    object-api-name={objName}
+    record-id="0011y00000fXZeDAAW"
+    >
+    <lightning-messages></lightning-messages>
+    <label>What is your Account Name/Organization Name?</label>
+    <lightning-input-field variant="label-hidden" field-name={fields.accName}></lightning-input-field>
+    <lightning-input-field field-name={fields.type}></lightning-input-field>
+    <lightning-input-field field-name={fields.phone}></lightning-input-field>
+    <lightning-input-field field-name="Industry"></lightning-input-field>
+    <lightning-button label="Cancel" onclick={handleReset} class="slds-var-m-around_xxx-small" ></lightning-button>
+    <lightning-button label='Save' type="submit" variant="brand" class="slds-var-m-around_xxx-small" ></lightning-button>
+</lightning-record-edit-form>
+</lightning-card>    
+</template>
